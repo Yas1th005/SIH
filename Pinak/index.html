@@ -1,0 +1,226 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+     Include any other external CSS libraries here, e.g., Bootstrap -->
+<!--
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <div class="profile">
+                <img src="profile-image-url" alt="Profile Image">
+                <span>Dominic Keller</span>
+                <span>Founder</span>
+            </div>
+            <div class="header-controls">
+                <div class="header-icons">
+                    <i class="fas fa-chart-bar"></i>
+                    <i class="fas fa-moon"></i>
+                    <i class="fas fa-cog"></i>
+                    <i class="fas fa-bell"></i>
+                </div>
+                <div class="language">
+                    <span>English</span>
+                    <img src="us-flag-url" alt="US Flag">
+                </div>
+                <div class="search">
+                    <input type="text" placeholder="Search...">
+                    <button>Search</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <div class="sidebar">
+                <button class="btn btn-filter"><i class="fas fa-filter"></i></button>
+                <button class="btn btn-refresh"><i class="fas fa-sync"></i></button>
+                <button class="btn btn-calendar"><i class="fas fa-calendar"></i></button>
+                <span class="date">08/25/2024</span>
+            </div>
+
+            <div class="main-content">
+                <div class="cards">
+                    <div class="card">
+                        <h3>PROJECTIONS VS ACTUALS</h3>
+                        <canvas id="chart1"></canvas>
+                    </div>
+                    <div class="card">
+                        <h3>Orders</h3>
+                        <p>5,543</p>
+                        <p>1.08% <span class="red">&#x2193;</span> Since last month</p>
+                    </div>
+                    <div class="card">
+                        <h3>Customers</h3>
+                        <p>36,254</p>
+                        <p>5.27% <span class="green">&#x2191;</span> Since last month</p>
+                    </div>
+                     Add other cards similarly 
+                </div>
+
+                <div class="charts">
+                    <div class="chart">
+                        <h3>REVENUE BY LOCATION</h3>
+                        <div id="map"></div>
+                        <div id="location-data">
+                            <p>New York: 72k</p>
+                            <p>San Francisco: 39k</p>
+                            <p>Sydney: 25k</p>
+                            <p>Singapore: 61k</p>
+                        </div>
+                    </div>
+                    <div class="chart">
+                        <h3>Today's Earning: $2,562.30</h3>
+                        <p>Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus...</p>
+                        <button>View Statements</button>
+                        <canvas id="chart2"></canvas>
+                    </div>
+                </div>
+
+                <div class="tables">
+                    <div class="table recent-activity">
+                        <h3>RECENT ACTIVITY</h3>
+                        <ul>
+                            <li>You sold an item</li>
+                            <li>Paul Burgess purchased a product</li>
+                             Add other activities 
+                        </ul>
+                    </div>
+                    <div class="table total-sales">
+                        <h3>TOTAL SALES</h3>
+                        <canvas id="chart3"></canvas>
+                    </div>
+                    <div class="table top-selling">
+                        <h3>TOP SELLING PRODUCTS</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>ASOS Ridley High Waist</td>
+                                    <td>82</td>
+                                    <td>$79.49</td>
+                                </tr>
+                                <tr>
+                                    <td>Marco Lightweight Shirt</td>
+                                    <td>37</td>
+                                    <td>$128.50</td>
+                                </tr>
+                                 Add other products 
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     Include any external JS libraries here, e.g., Chart.js 
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Dominic Keller</h2>
+            <!-- Add your sidebar items here -->
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <header>
+                <div class="top-bar">
+                    <h1>Dashboard</h1>
+                    <div class="search-bar">
+                        <input type="text" placeholder="Search...">
+                        <button>Search</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard Cards -->
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>PROJECTIONS VS ACTUALS</h3>
+                    <canvas id="chart1"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Orders</h3>
+                    <p>5,543</p>
+                    <p class="change down">1.08% ↓ Since last month</p>
+                </div>
+                <div class="card">
+                    <h3>Customers</h3>
+                    <p>36,254</p>
+                    <p class="change up">5.27% ↑ Since last month</p>
+                </div>
+                <div class="card">
+                    <h3>Growth</h3>
+                    <p>30.56% +</p>
+                    <p class="change up">4.87% ↑ Since last month</p>
+                </div>
+                <div class="card">
+                    <h3>Revenue</h3>
+                    <p>$6,254</p>
+                    <p class="change down">7.00% ↓ Since last month</p>
+                </div>
+            </div>
+
+            <!-- Revenue by Location -->
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">REVENUE BY LOCATION</h5>
+                    <div id="indiaMap" style="height: 300px;"></div>
+                </div>
+            </div>
+
+            <!-- More Dashboard Content -->
+            <div class="dashboard-cards">
+                <div class="card">
+                    <h3>Today's Earning: $2,562.30</h3>
+                    <canvas id="chart2"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Recent Activity</h3>
+                    <!-- Recent activity content -->
+                </div>
+                <div class="card">
+                    <h3>Total Sales</h3>
+                    <canvas id="chart3"></canvas>
+                </div>
+                <div class="card">
+                    <h3>Top Selling Products</h3>
+                    <!-- Top selling products content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+/* body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #fff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile img {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+
+.header-icons i {
+    margin: 0 10px;
+    cursor: pointer;
+}
+
+.language, .search {
+    margin-left: 20px;
+}
+
+.search input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.search button {
+    padding: 5px 10px;
+    background-color: #6255a5;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.btn {
+    background-color: #fff;
+    border: none;
+    margin: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.btn i {
+    font-size: 20px;
+    color: #6255a5;
+}
+
+.date {
+    margin-top: 20px;
+    font-size: 16px;
+    color: #333;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.cards, .charts, .tables {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card, .chart, .table {
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    flex: 1;
+    margin: 0 10px;
+}
+
+.card h3, .chart h3, .table h3 {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.card p {
+    font-size: 20px;
+    margin: 0;
+}
+
+.red {
+    color: #ff4d4f;
+}
+
+.green {
+    color: #29a745;
+}
+
+#map {
+    height: 150px;
+    background-color: #f0f0f0;
+}
+
+#location-data p {
+    font-size: 14px;
+    margin: 5px 0;
+}
+
+canvas {
+    max-width: 100%;
+} */
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fc;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #3a3f51;
+    color: white;
+    padding: 15px;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.search-bar {
+    display: flex;
+}
+
+.search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.search-bar button {
+    padding: 8px;
+    border: none;
+    background-color: #7e57c2;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.change.up {
+    color: green;
+}
+
+.change.down {
+    color: red;
+}
+
+#indiaMap {
+    height: 300px;
+    margin-bottom: 20px;
+}
+
+canvas {
+    width: 100%;
+    height: auto;
+}

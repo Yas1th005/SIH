@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: calc(33.33% - 40px);
+            box-sizing: border-box;
+        }
+        .card h5 {
+            margin: 0;
+            font-size: 18px;
+        }
+        #indiaMap {
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- User Info and Controls -->
+        <div class="card" style="width: 100%;">
+            <div style="display: flex; align-items: center;">
+                <img src="https://via.placeholder.com/50" alt="Profile" style="border-radius: 50%;">
+                <div style="margin-left: 10px;">
+                    <h5>Dominic Keller</h5>
+                    <p>Founder</p>
+                </div>
+                <div style="margin-left: auto;">
+                    <button style="background-color: #4CAF50; color: #fff; border: none; padding: 10px 20px; border-radius: 5px;">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts and Statistics -->
+        <div class="card">
+            <h5>PROJECTIONS VS ACTUALS</h5>
+            <canvas id="chart1"></canvas>
+        </div>
+        <div class="card">
+            <h5>Orders</h5>
+            <p>5,543</p>
+        </div>
+        <div class="card">
+            <h5>Customers</h5>
+            <p>36,254</p>
+        </div>
+        <div class="card">
+            <h5>Growth</h5>
+            <p>30.56% +</p>
+        </div>
+        <div class="card">
+            <h5>Revenue</h5>
+            <p>$6,254</p>
+        </div>
+
+        <!-- India Map -->
+        <div class="card">
+            <h5>REVENUE BY LOCATION</h5>
+            <div id="indiaMap"></div>
+        </div>
+
+        <!-- Recent Activity -->
+        <div class="card" style="width: 100%;">
+            <h5>RECENT ACTIVITY</h5>
+            <ul>
+                <li>You sold an item</li>
+                <li>Paul Burgess just purchased</li>
+            </ul>
+        </div>
+
+        <!-- Total Sales -->
+        <div class="card">
+            <h5>TOTAL SALES</h5>
+            <canvas id="chart3"></canvas>
+        </div>
+
+        <!-- Top Selling Products -->
+        <div class="card" style="width: 100%;">
+            <h5>TOP SELLING PRODUCTS</h5>
+            <table>
+                <tr>
+                    <th>Product</th>
+                    <th>Amount</th>
+                    <th>Quantity</th>
+                </tr>
+                <tr>
+                    <td>ASOS Ridley High Waist</td>
+                    <td>$79.49</td>
+                    <td>82</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Initialize the map and set its view to India
+        var map = L.map('indiaMap').setView([20.5937, 78.9629], 4);
+
+        // Add the tile layer to the map (this is the actual map background)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // Example marker:
+        L.marker([28.6139, 77.2090]).addTo(map) // New Delhi Coordinates
+            .bindPopup('New Delhi')
+            .openPopup();
+
+        // Chart 1: Bar chart for projections vs actuals
+        const ctx1 = document.getElementById('chart1').getContext('2d');
+        const chart1 = new Chart(ctx1, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Projections',
+                    data: [60000, 70000, 80000, 90000, 100000, 110000, 120000, 130000, 140000],
+                    backgroundColor: '#4DB6AC',
+                }]
+            }
+        });
+
+        // Chart 2: Line chart for earnings vs expenses
+        const ctx2 = document.getElementById('chart2').getContext('2d');
+        const chart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{
+                    label: 'Earnings',
+                    data: [2000, 3000, 2500, 4000, 3500, 3000, 4500],
+                    borderColor: '#4CAF50',
+                    fill: false,
+                }, {
+                    label: 'Expenses',
+                    data: [1800, 2800, 2200, 3800, 3300, 2900, 4200],
+                    borderColor: '#FF5722',
+                    fill: false,
+                }]
+            }
+        });
+
+        // Chart 3: Doughnut chart for total sales
+        const ctx3 = document.getElementById('chart3').getContext('2d');
+        const chart3 = new Chart(ctx3, {
+            type: 'doughnut',
+            data: {
+                labels: ['Product A', 'Product B', 'Product C', 'Product D'],
+                datasets: [{
+                    data: [30, 40, 20, 10],
+                    backgroundColor: ['#FFCE56', '#36A2EB', '#FF6384', '#4CAF50']
+                }]
+            }
+        });
+    </script>
+</body>
+</html>
